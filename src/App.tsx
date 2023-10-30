@@ -1,17 +1,17 @@
-import { useState } from 'react'
-import './App.css'
-import { Button } from '@mantine/core';
+import { useState } from "react";
+import "./App.css";
+import { Button } from "@mantine/core";
+import Navbar from "./components/navbar";
+import NavTest from "./components/navTest";
+import Home from "./pages/Home/Home";
 
 function App() {
-
   return (
-    <>
-     <h1 className="bg-blue-500 px-2 rounded ">
-      Hello world!
-    </h1>
-    <Button/>
-    </>
-  )
+    <div>
+      <NavTest></NavTest>
+      <Home></Home>
+    </div>
+  );
 }
 
-export default App
+export default App;

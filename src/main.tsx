@@ -6,7 +6,7 @@ import { MantineProvider } from "@mantine/core";
 import { createTheme } from "@mantine/core";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Movie from "./pages/Movie.tsx";
-import Home from "./pages/Home.tsx";
+import Home from "./pages/Home/Home.tsx";
 import Search from "./pages/Search.tsx";
 
 const theme = createTheme({
