@@ -1,22 +1,45 @@
 import express from "express";
+import cors from "cors";
+import timeout from "connect-timeout";
 const app = express();
-const moviesUrl = import.meta.env.VITE_API;
-const apiKey = import.meta.env.VITE_API_KEY;
-
-const PORT = 3001;
+const apiKey = "api_key=dd3b22c7dac9f4b6fef0ed1bdf88b9f0";
+const api = "https://api.themoviedb.org/3/movie/";
+const search = "https://api.themoviedb.org/3/search/movie";
+const imgSearch = "https://image.tmdb.org/t/p/w500";
+const PORT = 3000;
+app.use(timeout("3000000"));
+app.use(cors());
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
 
-export const getTopMovies = () => {
-  app.get("/api/top-rated-movies", async (req, res) => {
-    try {
-      const response = await fetch(`${moviesUrl}/top_rated?${apiKey}`);
-      const data = await response.json();
-      res.json(data); // Envie os dados como resposta
-    } catch (error) {
-      console.error("Erro ao buscar os filmes:", error);
-      res.status(500).json({ error: "Erro ao buscar os filmes" });
-    }
-  });
-};
+app.get("/api/top_movies", async (req, res) => {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/top_rated?${apiKey}&language=pt-BR`
+    );
+    const data = await response.json();
+
+    res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+
+    res.json(data.results);
+  } catch (error) {
+    console.error("Erro ao buscar os filmes:", error);
+    res.status(500).json({ error: "Erro ao buscar os filmes" });
+  }
+});
+
+app.get("/api/search", async (req, res) => {
+  try {
+    const { poster_path } = req.query;
+    const imagePath = `${imgSearch}${poster_path}`;
+
+    res.header("Content-Type", "image/jpeg");
+    res.send(imagePath);
+  } catch (error) {
+    console.error("Erro ao buscar o poster do filme:", error);
+    res.status(500).json({ error: "Erro ao buscar o poster do filme" });
+  }
+});

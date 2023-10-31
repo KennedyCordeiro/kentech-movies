@@ -6,7 +6,7 @@ export const NavWrapper = styled.nav`
   left: 0;
   width: 100%;
   height: 60px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Euclid Circular A", sans-serif;
   position: fixed;
   z-index: 1000;
   display: flex;
@@ -15,7 +15,7 @@ export const NavWrapper = styled.nav`
   background-color: transparent;
   @media screen and (max-width: 900px) {
     background-color: transparent !important;
-    animation: 0s;
+    animation: 1s;
   }
 
   @keyframes showMenu {
@@ -33,6 +33,7 @@ export const NavContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
   margin-right: 1em;
+  font-weight: 500;
   margin-top: 10px;
   @media screen and (max-width: 900px) {
     margin-right: 0px;
@@ -71,6 +72,7 @@ export const NavIconsSmart = styled.div<{ menuSmart: boolean }>`
     top: 0px;
     width: 100%;
     height: 100vh;
+
     overflow: auto;
     background-color: #27272758;
     gap: 20px;
@@ -117,7 +119,7 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   color: #fff;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
 
   &::before,
   &::after {

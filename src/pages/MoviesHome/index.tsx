@@ -1,34 +1,31 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import MovieCard from "../../components/movieCard";
+import { Container, DivTitle, DivMovies } from "./moviesHome.styled";
+import Carousel from "../../components/carousel";
 
 const MoviesHome = () => {
   const [topMovies, setTopMovies] = useState([]);
 
   useEffect(() => {
-    const fetchTopRatedMovies = async () => {
-      try {
-        const response = await fetch("/api/top-rated-movies");
-        const data = await response.json();
-        setTopMovies(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchTopRatedMovies();
+    fetch("http://localhost:3000/api/top_movies")
+      .then((response) => response.json())
+      .then((data) => setTopMovies(data))
+      .catch((error) => console.error("Erro ao buscar os filmes:", error));
   }, []);
 
   return (
-    <div>
-      <h1>Top Rated Movies</h1>
-      <ul>
-        {topMovies.map((movie, index) => (
-          <li className="text-slate-700 text-4xl text-center" key={index}>
-            {movie}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Container className="h-screen overflow-y-auto">
+        <DivTitle className="text-4xl">Top Filmes</DivTitle>
+        <Carousel />
+        <DivMovies>
+          {topMovies.length > 0 &&
+            topMovies.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
+        </DivMovies>
+      </Container>
+    </>
   );
 };
 

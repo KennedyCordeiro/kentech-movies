@@ -40,8 +40,8 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch, placeholder }) => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            height="20px"
-            width="20px"
+            height="25px"
+            width="25px"
           >
             <path
               strokeLinejoin="round"
