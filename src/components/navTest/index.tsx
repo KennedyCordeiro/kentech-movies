@@ -9,8 +9,6 @@ import {
 } from "./NavTest.styled";
 import { useState, useEffect } from "react";
 import MenuIcon from "../menuIcon";
-import InputStyled from "../searchInput";
-import InputTest from "../inputTest";
 import SearchInput from "../searchInput";
 
 type SearchInputProps = {
@@ -23,7 +21,7 @@ interface Section {
 }
 
 const NavTest: React.FC = () => {
-  // para adicionar uma nova seção é só colocar mais 1 seção no arry 😎
+  // para adicionar uma nova seção é só colocar mais 1 seção no array 😎
   const sections: Section[] = [{ id: "/Home", label: "Home" }];
   const [menuSmart, setMenuSmart] = useState(false);
   const [activeLink, setActiveLink] = useState<string>("Home");

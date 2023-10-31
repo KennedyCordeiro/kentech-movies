@@ -3,13 +3,15 @@ import "./App.css";
 import { Button } from "@mantine/core";
 import Navbar from "./components/navbar";
 import NavTest from "./components/navTest";
-import Home from "./pages/Home/Home";
+import Home from "./pages/Home";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <div>
       <NavTest></NavTest>
-      <Home></Home>
+
+      <Outlet />
     </div>
   );
 }

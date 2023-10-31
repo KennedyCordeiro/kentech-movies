@@ -81,7 +81,7 @@ const MenuIcon: React.FC<ToggleIconProps> = ({ Disable, HandleMenu }) => {
         id="checkbox"
         type="checkbox"
         onClick={HandleMenu}
-        checked={Disable}
+        defaultChecked={Disable}
       />
       <ToggleLabel htmlFor="checkbox">
         <Bar1 id="bar1" className="bars" />

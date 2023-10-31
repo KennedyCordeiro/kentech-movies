@@ -6,31 +6,18 @@ import { MantineProvider } from "@mantine/core";
 import { createTheme } from "@mantine/core";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Movie from "./pages/Movie.tsx";
-import Home from "./pages/Home/Home.tsx";
+import Home from "./pages/Home/index.tsx";
 import Search from "./pages/Search.tsx";
-
-const theme = createTheme({
-  colors: {
-    dark: [
-      "#16161A", // background
-      "#94A1B2", // paragraph
-      "#FFFFFE", // text-button
-      "#7F5AF0", // button
-    ],
-  },
-  fonts: {
-    heading: "Euclid Circular A, sans-serif",
-    body: "Poppins, sans-serif",
-  },
-});
+import MoviesHome from "./pages/MoviesHome/index.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <MantineProvider theme={theme} defaultColorScheme="dark">
+      <MantineProvider defaultColorScheme="dark">
         <Routes>
           <Route element={<App />}>
             <Route path="/" element={<Home />} />
+            <Route path="moviesHome" element={<MoviesHome />} />
             <Route path="movie/:id" element={<Movie />} />
             <Route path="search" element={<Search />} />
           </Route>

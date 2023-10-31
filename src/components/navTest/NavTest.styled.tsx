@@ -126,7 +126,7 @@ export const StyledLink = styled(Link)`
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #d7d7d7;
+    background-color: #7f5af0;
     transform: scaleX(0);
     transition: transform 0.25s;
   }
