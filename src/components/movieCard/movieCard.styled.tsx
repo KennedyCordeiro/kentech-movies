@@ -44,9 +44,9 @@ export const StyledButton = styled.button`
   }
 `;
 
-export const StyledImg = styled.img``;
-
 export const MovieCardContainer = styled.div`
+  @media screen and (max-width: 600px) {
+  }
   transition: 0.3s ease-out;
   &:hover {
     border: 0.5px solid white;

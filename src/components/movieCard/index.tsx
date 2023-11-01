@@ -28,7 +28,7 @@ const MovieCard: React.FC<MovieProps> = ({ movie }) => {
   return (
     <C.MovieCardContainer>
       {posterUrl && (
-        <C.StyledImg
+        <img
           src={posterUrl}
           width="390"
           height="200"

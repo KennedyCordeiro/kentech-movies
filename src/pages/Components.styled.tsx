@@ -7,6 +7,20 @@ export const Container = styled.div`
   background-image: url(${BackgroundLeft});
   flex-direction: column;
 `;
+
+export const ContainerMovie = styled.div`
+  display: flex;
+  background-image: url(${BackgroundLeft});
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const DivPosterMovie = styled.div`
+  display: flex;
+  flex: 0;
+  margin: 1rem;
+`;
+
 export const DivMovies = styled.div`
   justify-content: space-around;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -18,16 +32,30 @@ export const DivMovies = styled.div`
   margin-top: 2rem;
 `;
 
+export const StyledImg = styled.img`
+  object-fit: fill;
+  &:hover {
+    border: 0.5px solid white;
+    transform: scale(1.05);
+    transition: 0.3s ease-out;
+  }
+`;
+
 export const DivTitle = styled.div`
   width: 100%;
   display: flex;
   font-family: "Poppins", sans-serif;
   color: #fffe;
-
   align-items: center;
-  font-weight: bold;
+  font-weight: 700;
   justify-content: center;
   margin: 1em 0 1em 0;
+  font-size: 4vw;
+
+  @media screen and (max-width: 768px) {
+    padding-top: 1rem;
+    margin: 1em 0 0 0;
+  }
 `;
 
 export const DivCarousel = styled.div`
