@@ -1,7 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic");
 
 .border-custom {
   border-color: #6639ef;

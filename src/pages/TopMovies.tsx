@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import MovieCard from "../../components/movieCard";
-import { Container, DivTitle, DivMovies } from "./moviesHome.styled";
-import Carousel from "../../components/carousel";
+import MovieCard from "../components/movieCard";
+import { Container, DivTitle, DivMovies } from "./Components.styled";
+import Carousel from "../components/carousel";
 
 const MoviesHome = () => {
   const [topMovies, setTopMovies] = useState([]);
@@ -17,7 +17,7 @@ const MoviesHome = () => {
     <>
       <Container className="h-screen overflow-y-auto">
         <DivTitle className="text-4xl">Top Filmes</DivTitle>
-        <Carousel />
+        <br />
         <DivMovies>
           {topMovies.length > 0 &&
             topMovies.map((movie) => (

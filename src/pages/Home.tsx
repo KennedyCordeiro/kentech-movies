@@ -1,12 +1,10 @@
 import { useState } from "react";
-import * as C from "./home.styled";
-import ButtonStyled from "../../components/buttonStyled";
+import * as C from "./Components.styled";
+import ButtonStyled from "../components/buttonStyled";
 import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
-
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleButton = () => {
     navigate("/moviesHome");

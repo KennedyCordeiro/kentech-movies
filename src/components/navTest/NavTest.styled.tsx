@@ -153,5 +153,5 @@ export const StyledLink = styled(Link)`
 
 export const DivSearch = styled.div`
   display: flex;
-  padding: 0.3em 1rem 0 0;
+  padding: 0.3em 1.3rem 0 0;
 `;

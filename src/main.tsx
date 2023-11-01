@@ -6,9 +6,9 @@ import { MantineProvider } from "@mantine/core";
 import { createTheme } from "@mantine/core";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Movie from "./pages/Movie.tsx";
-import Home from "./pages/Home/index.tsx";
+import Home from "./pages/Home.tsx";
 import Search from "./pages/Search.tsx";
-import MoviesHome from "./pages/MoviesHome/index.jsx";
+import MoviesHome from "./pages/TopMovies.js";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

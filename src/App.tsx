@@ -1,17 +1,15 @@
-import { useState } from "react";
 import "./App.css";
-import { Button } from "@mantine/core";
-import Navbar from "./components/navbar";
 import NavTest from "./components/navTest";
-import Home from "./pages/Home";
 import { Outlet } from "react-router-dom";
+import "@mantine/core/styles.css";
 
+import { MantineProvider } from "@mantine/core";
 function App() {
   return (
-    <>
+    <MantineProvider defaultColorScheme="dark">
       <NavTest></NavTest>
       <Outlet />
-    </>
+    </MantineProvider>
   );
 }
 

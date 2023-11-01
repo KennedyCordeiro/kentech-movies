@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as C from "./movieCard.styled";
 
 interface MovieProps {
@@ -8,9 +8,12 @@ interface MovieProps {
 
 const MovieCard: React.FC<MovieProps> = ({ movie }) => {
   const [posterUrl, setPosterUrl] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/search?poster_path=${movie.poster_path}`)
+    fetch(
+      `http://localhost:3000/api/searchPoster?poster_path=${movie.poster_path}`
+    )
       .then((response) => response.text()) // Use .text() para obter o link direto da imagem
       .then((imageUrl) => {
         setPosterUrl(imageUrl);
@@ -18,8 +21,12 @@ const MovieCard: React.FC<MovieProps> = ({ movie }) => {
       .catch((error) => console.error("Erro ao buscar o poster:", error));
   }, [movie.poster_path]);
 
+  const handleMovie = () => {
+    navigate(`/movie/${movie.id}`);
+  };
+
   return (
-    <div>
+    <C.MovieCardContainer>
       {posterUrl && (
         <C.StyledImg
           src={posterUrl}
@@ -81,6 +88,7 @@ const MovieCard: React.FC<MovieProps> = ({ movie }) => {
         <button
           className="relative group cursor-pointer text-sky-50 overflow-hidden h-12 w-44 rounded-md bg-purple-600 p-2 flex justify-center items-center font-extrabold"
           style={{ marginTop: "1em", fontFamily: "Poppins" }}
+          onClick={handleMovie}
         >
           <div className="absolute top-3 right-20 group-hover:top-12 group-hover:-right-12 z-10 w-40 h-40 rounded-full group-hover:scale-150 group-hover:opacity-50 duration-500 bg-purple-900"></div>
           <div className="absolute top-3 right-20 group-hover:top-12 group-hover:-right-12 z-10 w-32 h-32 rounded-full group-hover:scale-150 group-hover:opacity-50 duration-500 bg-purple-800"></div>
@@ -89,7 +97,7 @@ const MovieCard: React.FC<MovieProps> = ({ movie }) => {
           <p className="z-10 font-extrabold">Mais informações</p>
         </button>
       </div>
-    </div>
+    </C.MovieCardContainer>
   );
 };
 

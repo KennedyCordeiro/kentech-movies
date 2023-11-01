@@ -1,9 +1,34 @@
-import React from 'react'
+import React from "react";
+import { useEffect, useState } from "react";
+import MovieCard from "../components/movieCard";
+import * as C from "./Components.styled";
+import { useSearchParams } from "react-router-dom";
 
 const Search = () => {
-  return (
-    <div>Search</div>
-  )
-}
+  const [movies, setMovies] = useState([]);
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get("q");
 
-export default Search
+  useEffect(() => {
+    fetch(`http://localhost:3000/api/search?search_path=${query}`)
+      .then((response) => response.json())
+      .then((data) => setMovies(data))
+      .catch((error) => console.error("Erro ao buscar o poster:", error));
+  }, [query]);
+
+  return (
+    <C.Container className="h-screen overflow-y-auto">
+      <C.DivTitle className="text-4xl">
+        Exibindo resultados para '{query}'
+      </C.DivTitle>
+      <br />
+
+      <C.DivMovies>
+        {movies.length > 0 &&
+          movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+      </C.DivMovies>
+    </C.Container>
+  );
+};
+
+export default Search;

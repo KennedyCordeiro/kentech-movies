@@ -1,29 +1,24 @@
 import React, { useState, ChangeEvent } from "react";
 import "./inputStyled.css";
+import { useNavigate } from "react-router-dom";
 
 type SearchInputProps = {
-  onSearch: (query: string) => void;
   placeholder: string;
 };
 
-const SearchInput: React.FC<SearchInputProps> = ({ onSearch, placeholder }) => {
-  const [searchValue, setSearchValue] = useState<string>("");
-  const [searchHistory, setSearchHistory] = useState<string[]>([
-    "kennedy",
-    "sex-education",
-  ]);
-
+const SearchInput: React.FC<SearchInputProps> = ({ placeholder }) => {
   const [onActive, setOnActive] = useState(false);
+  const [value, setValue] = useState("");
+  const navigate = useNavigate();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setSearchValue(value);
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    if (!value || value.length < 3) return;
+
+    navigate(`/search?q=${value}`);
+    setValue("");
   };
-
-  const handleSearch = () => {
-    console.log("deu bom");
-  };
-
   const handleInputFocus = () => {
     setOnActive(true);
   };
@@ -62,22 +57,21 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch, placeholder }) => {
         <input
           placeholder={placeholder}
           className="input"
-          name="text"
           type="text"
-          value={searchValue}
+          value={value}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
-          onChange={handleInputChange}
+          onChange={(e) => setValue(e.target.value)}
         />
       </div>
-      {onActive && searchValue.length > 3 && (
+      {/* {onActive && value.length > 3 && (
         <div
           className="suggestions border-white"
           style={{ borderBottom: "1px solid #fffe" }}
         >
           <h3 className="bd-white border-cyan-50 text-white"> Sugestões </h3>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

@@ -14,6 +14,7 @@ export const StyledButton = styled.button`
   transform: skew(-5deg);
   position: relative;
   border-radius: 5px;
+
   span {
     display: inline-block;
     transform: skew(21deg);
@@ -43,9 +44,12 @@ export const StyledButton = styled.button`
   }
 `;
 
-export const StyledImg = styled.img`
+export const StyledImg = styled.img``;
+
+export const MovieCardContainer = styled.div`
+  transition: 0.3s ease-out;
   &:hover {
-    transform: scale(1.04);
-    transition: 0.3s ease-in-out;
+    border: 0.5px solid white;
+    transform: scale(1.05);
   }
 `;
