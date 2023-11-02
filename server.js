@@ -7,9 +7,9 @@ const movieURL = "https://api.themoviedb.org/3/movie/";
 const searchURL = "https://api.themoviedb.org/3/search/movie";
 const imgURL = "https://image.tmdb.org/t/p/w500";
 const recentURL = "https://api.themoviedb.org/3/movie/upcoming";
+//https://api.themoviedb.org/3/movie/upcoming?api_key=YOUR_API_KEY&language=pt-BR
 
 const PORT = 3000;
-app.use(timeout("300000"));
 app.use(cors());
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
@@ -30,6 +30,24 @@ app.get("/api/top_movies", async (req, res) => {
   } catch (error) {
     console.error("Erro ao buscar os filmes:", error);
     res.status(500).json({ error: "Erro ao buscar os filmes" });
+  }
+});
+
+app.get("/api/up_coming", async (req, res) => {
+  try {
+    const link = `${recentURL}?${apiKey}&language=pt-BR`;
+    const response = await fetch(`${recentURL}?${apiKey}&language=pt-BR`);
+
+    const data = await response.json();
+
+    res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+
+    res.json(data.results);
+  } catch (error) {
+    console.error("Erro ao buscar o poster do filme:", error);
+    res.status(500).json({ error: "Erro ao buscar o poster do filme" });
   }
 });
 
@@ -55,7 +73,6 @@ app.get("/api/search", async (req, res) => {
 app.get("/api/getMovie", async (req, res) => {
   try {
     const { movie_id } = req.query;
-    const stest = `${movieURL}${movie_id}?${apiKey}`;
     const response = await fetch(
       `${movieURL}${movie_id}?${apiKey}&language=pt-BR`
     );

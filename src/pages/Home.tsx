@@ -7,13 +7,13 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleButton = () => {
-    navigate("/moviesHome");
+    navigate("/topMovies");
   };
 
   return (
     <C.ContainerHome className="h-screen overflow-y-auto">
       <C.DivText>
-        <h1 className="text-6xl sm:text-8xl font-bolder md:text-9xl lg:text-10xl xl:text-11xl  text-white">
+        <h1 className="text-6xl sm:text-8xl font-normal md:text-9xl lg:text-10xl xl:text-11xl  text-white">
           Bem vindo a Kentech Filmes
         </h1>
         <ButtonStyled Onclick={handleButton} Text="Vamos lá"></ButtonStyled>

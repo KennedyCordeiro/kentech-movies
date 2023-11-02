@@ -8,7 +8,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Movie from "./pages/Movie.tsx";
 import Home from "./pages/Home.tsx";
 import Search from "./pages/Search.tsx";
-import MoviesHome from "./pages/TopMovies.js";
+import TopMovies from "./pages/TopMovies.tsx";
+import RecentMovies from "./pages/RecentMovies.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -16,7 +17,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route element={<App />}>
           <Route path="/" element={<Home />} />
-          <Route path="moviesHome" element={<MoviesHome />} />
+          <Route path="topMovies" element={<TopMovies />} />
+          <Route path="recentMovies" element={<RecentMovies />} />
           <Route path="movie/:id" element={<Movie />} />
           <Route path="search" element={<Search />} />
         </Route>

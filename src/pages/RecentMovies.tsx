@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import MovieCard from "../components/movieCard";
 import { Container, DivTitle, DivMovies } from "./Components.styled";
-import Carousel from "../components/carousel";
+import { useEffect, useState } from "react";
 
-const TopMovies = () => {
-  const [topMovies, setTopMovies] = useState([]);
+const RecentMovies = () => {
+  const [recentMovies, setRecentMovies] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/top_movies")
+    fetch("http://localhost:3000/api/up_coming")
       .then((response) => response.json())
-      .then((data) => setTopMovies(data))
+      .then((data) => setRecentMovies(data))
       .catch((error) => console.error("Erro ao buscar os filmes:", error));
   }, []);
 
   return (
     <>
       <Container className="h-screen overflow-y-auto">
-        <DivTitle>Top Filmes</DivTitle>
+        <DivTitle>Recem chegados</DivTitle>
         <DivMovies>
-          {topMovies.length > 0 &&
-            topMovies.map((movie) => (
+          {recentMovies.length > 0 &&
+            recentMovies.map((movie) => (
               <MovieCard key={movie.id} movie={movie} />
             ))}
         </DivMovies>
@@ -28,4 +28,4 @@ const TopMovies = () => {
   );
 };
 
-export default TopMovies;
+export default RecentMovies;

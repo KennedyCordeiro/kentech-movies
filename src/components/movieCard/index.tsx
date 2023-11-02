@@ -30,7 +30,7 @@ const MovieCard: React.FC<MovieProps> = ({ movie }) => {
       {posterUrl && (
         <img
           src={posterUrl}
-          width="390"
+          width="490"
           height="200"
           className=""
           alt={movie.title}

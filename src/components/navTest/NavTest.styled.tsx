@@ -46,9 +46,6 @@ export const List = styled.ul`
   display: flex;
   align-items: center;
   gap: 40px;
-  @media screen and (max-width: 900px) {
-    display: none;
-  }
 `;
 
 export const DivIcon = styled.div`
@@ -154,4 +151,8 @@ export const StyledLink = styled(Link)`
 export const DivSearch = styled.div`
   display: flex;
   padding: 0.3em 1.3rem 0 0;
+
+  @media screen and (max-width: 768px) {
+    padding: 1em;
+  }
 `;

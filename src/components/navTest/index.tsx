@@ -19,7 +19,10 @@ type SearchInputProps = {
 
 const NavTest: React.FC = () => {
   // para adicionar uma nova seção é só colocar mais 1 seção no array 😎
-  const sections: Section[] = [{ id: "/Home", label: "Home" }];
+  const sections: Section[] = [
+    { id: "/", label: "Home" },
+    { id: "/recentMovies", label: "Recentes" },
+  ];
   const [menuSmart, setMenuSmart] = useState(false);
   const [activeLink, setActiveLink] = useState<string>("Home");
   const [search, setSearch] = useState("");
@@ -50,9 +53,9 @@ const NavTest: React.FC = () => {
       <DivSearch>
         <SearchInput placeholder={"Busque um filme"} />
       </DivSearch>
-      <DivIcon>
+      {/* <DivIcon>
         <MenuIcon Disable={menuSmart} HandleMenu={handleMenu1}></MenuIcon>
-      </DivIcon>
+      </DivIcon> */}
 
       <NavIconsSmart as="div" menuSmart={menuSmart}>
         {sections.map((section) => (

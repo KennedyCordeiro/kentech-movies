@@ -5,6 +5,10 @@
   gap: 15px;
   margin-right: 2em;
   position: sticky;
+
+  @media screen and (max-width: 768px) {
+    margin: 0;
+  }
 }
 
 .input {
