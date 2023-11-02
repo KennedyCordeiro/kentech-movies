@@ -35,8 +35,14 @@ app.get("/api/top_movies", async (req, res) => {
 
 app.get("/api/up_coming", async (req, res) => {
   try {
+    const { page } = req.query;
     const link = `${recentURL}?${apiKey}&language=pt-BR`;
-    const response = await fetch(`${recentURL}?${apiKey}&language=pt-BR`);
+    let response;
+    page
+      ? (response = await fetch(
+          `${recentURL}?${apiKey}&language=pt-BR&page=${page}`
+        ))
+      : (response = await fetch(`${recentURL}?${apiKey}&language=pt-BR`));
 
     const data = await response.json();
 

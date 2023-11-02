@@ -51,7 +51,7 @@ const StyledButton = styled.button`
 const DivButton = styled.div`
   margin-top: 60px;
 
-  @media screen (max-width: 900px) {
+  @media screen and (max-width: 900px) {
     margin-top: 40px;
   }
 `;
@@ -62,11 +62,7 @@ interface Section {
 }
 
 const ButtonStyled: React.FC<Section> = ({ Text, Onclick }) => {
-  return (
-    <DivButton>
-      <StyledButton onClick={Onclick}>{Text}</StyledButton>
-    </DivButton>
-  );
+  return <StyledButton onClick={Onclick}>{Text}</StyledButton>;
 };
 
 export default ButtonStyled;

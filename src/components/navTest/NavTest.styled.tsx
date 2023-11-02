@@ -10,7 +10,8 @@ export const NavWrapper = styled.nav`
   position: fixed;
   z-index: 1000;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  padding: 2em;
   align-items: center;
   background-color: transparent;
   @media screen and (max-width: 900px) {
@@ -30,7 +31,7 @@ export const NavWrapper = styled.nav`
 
 export const NavContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   margin-right: 1em;
   font-weight: 500;
@@ -125,7 +126,7 @@ export const StyledLink = styled(Link)`
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #7f5af0;
+    background-color: #fffe;
     transform: scaleX(0);
     transition: transform 0.25s;
   }
@@ -151,7 +152,7 @@ export const StyledLink = styled(Link)`
 export const DivSearch = styled.div`
   display: flex;
   padding: 0.3em 1.3rem 0 0;
-
+  justify-self: end;
   @media screen and (max-width: 768px) {
     padding: 1em;
   }

@@ -27,15 +27,7 @@ const MovieCard: React.FC<MovieProps> = ({ movie }) => {
 
   return (
     <C.MovieCardContainer>
-      {posterUrl && (
-        <img
-          src={posterUrl}
-          width="490"
-          height="200"
-          className=""
-          alt={movie.title}
-        />
-      )}
+      {posterUrl && <img src={posterUrl} className="" alt={movie.title} />}
 
       <div className="group p-6 grid z-10">
         <h3 className=" font-bold sm:text-2xl line-clamp-2 text-white">
@@ -46,7 +38,9 @@ const MovieCard: React.FC<MovieProps> = ({ movie }) => {
         </span>
         <div className="h-28">
           <span className="line-clamp-4 py-2 text-base font-light leading-relaxed text-slate-200">
-            {movie.overview.slice(0, 150)}
+            {movie.overview.length > 0
+              ? movie.overview.slice(0, 150)
+              : "Descrição indisponivel"}
             {movie.overview.length > 50 ? "..." : ""}
           </span>
         </div>
