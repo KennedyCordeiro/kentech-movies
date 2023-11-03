@@ -7,19 +7,27 @@ const movieURL = "https://api.themoviedb.org/3/movie/";
 const searchURL = "https://api.themoviedb.org/3/search/movie";
 const imgURL = "https://image.tmdb.org/t/p/w500";
 const recentURL = "https://api.themoviedb.org/3/movie/upcoming";
+const topMoviesURL = "https://api.themoviedb.org/3/movie/top_rated";
 //https://api.themoviedb.org/3/movie/upcoming?api_key=YOUR_API_KEY&language=pt-BR
+let searchResults = [];
 
 const PORT = 3000;
 app.use(cors());
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
 
 app.get("/api/top_movies", async (req, res) => {
   try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?${apiKey}&language=pt-BR`
-    );
+    let response;
+    const { page } = req.query;
+    page
+      ? (response = await fetch(
+          `${topMoviesURL}?${apiKey}&language=pt-BR&page=${page}`
+        ))
+      : (response = await fetch(`${topMoviesURL}?${apiKey}&language=pt-BR`));
+
     const data = await response.json();
 
     res.header("Access-Control-Allow-Origin", "http://localhost:5173");
