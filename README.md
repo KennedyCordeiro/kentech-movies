@@ -4,9 +4,7 @@
 
 ###
 
-<div align="center">
-  <img height="600" src="https://file.notion.so/f/f/e3debdd3-be68-43e5-a9df-e155efdd275a/13c1b8fc-90a1-484c-8456-0612f71b6414/Untitled.png?id=0f0540d4-7322-4614-a5cb-e99c12438bef&table=block&spaceId=e3debdd3-be68-43e5-a9df-e155efdd275a&expirationTimestamp=1699135200000&signature=-NTiZvI9NUHsw6tM-OWpouiMPGVG1HfEkoaAItgQOSw&downloadName=Untitled.png"  />
-</div>
+
 
 ###
 
