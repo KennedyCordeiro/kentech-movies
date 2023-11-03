@@ -29,7 +29,7 @@ const TopMovies = () => {
   return (
     <>
       <Container className="h-screen overflow-y-auto">
-        <DivTitle>Top Filmes</DivTitle>
+        <DivTitle style={{ fontSize: "2.0vw" }}>Top Filmes</DivTitle>
         <DivMovies>
           {topMovies.length > 0 &&
             topMovies.map((movie) => (
