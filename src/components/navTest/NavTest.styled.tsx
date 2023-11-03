@@ -10,8 +10,9 @@ export const NavWrapper = styled.nav`
   position: fixed;
   z-index: 1000;
   display: flex;
-  justify-content: flex-start;
-  padding: 2em;
+  justify-content: flex-end;
+  gap: 2em;
+  padding: 2.5em;
   align-items: center;
   background-color: transparent;
   @media screen and (max-width: 900px) {
@@ -70,7 +71,6 @@ export const NavIconsSmart = styled.div<{ menuSmart: boolean }>`
     top: 0px;
     width: 100%;
     height: 100vh;
-
     overflow: auto;
     background-color: #27272758;
     gap: 20px;

@@ -13,14 +13,10 @@ import SearchInput from "../searchInput";
 import e from "express";
 import { Navigate, useNavigate } from "react-router-dom";
 
-type SearchInputProps = {
-  onSearch: (query: string) => void;
-};
-
 const NavTest: React.FC = () => {
   // para adicionar uma nova seção é só colocar mais 1 seção no array 😎
   const sections: Section[] = [
-    { id: "/", label: "Home" },
+    { id: "/TopMovies", label: "TopFilmes" },
     { id: "/recentMovies", label: "Recentes" },
   ];
   const [menuSmart, setMenuSmart] = useState(false);

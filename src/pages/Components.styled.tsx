@@ -58,7 +58,7 @@ export const DivPosterMovie = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 1em 0 2em;
-  width: 100%;
+
   @media screen and (max-width: 768px) {
     padding: 2em 1em 0 1em;
     justify-content: center;
@@ -112,11 +112,32 @@ export const MovieTitle = styled.div`
 `;
 
 export const StyledImg = styled.img`
-  object-fit: contain;
+  object-fit: cover;
+  width: 390px;
+  height: 500px;
   &:hover {
     border: 0.5px solid white;
     transform: scale(1.05);
     transition: 0.3s ease-out;
+  }
+`;
+
+export const StyledImgMovie = styled.img`
+  object-fit: cover;
+  width: 390px;
+  height: 500px;
+  margin: 0 1em 0 2em;
+  &:hover {
+    border: 0.5px solid white;
+    transform: scale(1.05);
+    transition: 0.3s ease-out;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 5em 1em 0 1em;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
   }
 `;
 
@@ -143,11 +164,19 @@ export const DivTitle = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    font-size: 5vw;
+    font-size: 7vw;
     margin: 3em 0 0 0;
-    width: 180px;
-    height: 60px;
-    border: 2.5px solid;
+    width: 100%;
+    height: 80px;
+    border: 0;
+    color: #fffe;
+    cursor: default;
+
+    &:hover {
+      background-color: transparent;
+      color: #fffe;
+      transition: 0.5s ease-in-out;
+    }
   }
 `;
 

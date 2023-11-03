@@ -39,24 +39,23 @@ const Movie = () => {
   };
 
   const handleBack = () => {
-    navigate("/topMovies");
+    navigate("/");
   };
 
   return (
     <C.ContainerMovie className="h-screen overflow-y-auto">
       {movie && (
         <>
-          <C.DivPosterMovie>
-            {movie && (
-              <C.StyledImg
-                src={posterUrl}
-                width="490"
-                height="300"
-                className=""
-                alt={movie?.title}
-              />
-            )}
-          </C.DivPosterMovie>
+          {movie && (
+            <C.StyledImgMovie
+              src={posterUrl}
+              width="490"
+              height="300"
+              className=""
+              alt={movie?.title}
+            />
+          )}
+
           <C.MovieDetails>
             <C.MovieTitle className="text-slate-200">
               {movie.title}
@@ -92,7 +91,7 @@ const Movie = () => {
             </C.MovieOverview>
 
             <C.ButtonBack onClick={handleBack} style={{ marginTop: "0.5em" }}>
-              Voltar
+              Voltar pra Home
             </C.ButtonBack>
           </C.MovieDetails>
         </>
