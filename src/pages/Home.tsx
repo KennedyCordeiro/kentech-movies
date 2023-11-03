@@ -14,7 +14,7 @@ const Home = () => {
     <C.ContainerHome className="h-screen overflow-y-auto">
       <C.DivText>
         <h1 className="text-6xl sm:text-8xl font-normal md:text-9xl lg:text-10xl xl:text-11xl  text-white">
-          Bem vindo a Kentech Filmes
+          Bem vindo(a) a Kentech Filmes
         </h1>
         <div style={{ marginTop: "60px" }}>
           <ButtonStyled Onclick={handleButton} Text="Vamos lá"></ButtonStyled>
