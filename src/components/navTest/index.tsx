@@ -27,10 +27,6 @@ const NavTest: React.FC = () => {
     setActiveLink(link);
   };
 
-  const handleMenu1 = () => {
-    setMenuSmart((prevState) => !prevState);
-  };
-
   return (
     <NavWrapper>
       <NavContainer>

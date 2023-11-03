@@ -171,6 +171,7 @@ export const DivTitle = styled.div`
     border: 0;
     color: #fffe;
     cursor: default;
+    text-align: center;
 
     &:hover {
       background-color: transparent;
@@ -180,6 +181,19 @@ export const DivTitle = styled.div`
   }
 `;
 
+export const DivSearchTitle = styled.div`
+  color: #fffe;
+  width: 100%;
+  text-align: center;
+  font-size: 3vw;
+  margin-top: 1em;
+  font-weight: bold;
+
+  @media screen and (max-width: 768px) {
+    font-size: 6.5vw;
+    margin: 3em 0 0 0;
+  }
+`;
 export const DivCarousel = styled.div`
   width: 100%;
   display: flex;

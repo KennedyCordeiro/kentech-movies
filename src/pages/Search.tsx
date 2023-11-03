@@ -18,7 +18,7 @@ const Search = () => {
 
   return (
     <C.Container className="h-screen overflow-y-auto">
-      <C.DivTitle>Exibindo resultados para '{query}'</C.DivTitle>
+      <C.DivSearchTitle>Exibindo resultados para '{query}'</C.DivSearchTitle>
 
       <C.DivMovies>
         {movies.length > 0 &&

@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import timeout from "connect-timeout";
+import NodeCache from "node-cache";
+
 const app = express();
 const apiKey = "api_key=dd3b22c7dac9f4b6fef0ed1bdf88b9f0";
 const movieURL = "https://api.themoviedb.org/3/movie/";
@@ -8,10 +9,13 @@ const searchURL = "https://api.themoviedb.org/3/search/movie";
 const imgURL = "https://image.tmdb.org/t/p/w500";
 const recentURL = "https://api.themoviedb.org/3/movie/upcoming";
 const topMoviesURL = "https://api.themoviedb.org/3/movie/top_rated";
-//https://api.themoviedb.org/3/movie/upcoming?api_key=YOUR_API_KEY&language=pt-BR
-let searchResults = [];
-
 const PORT = 3000;
+// **************Cache de filmes*************
+const cache = new NodeCache();
+
+// **************Cache de pesquisa *************
+const searchHistoryCache = new NodeCache();
+
 app.use(cors());
 
 app.listen(PORT, () => {
@@ -20,8 +24,17 @@ app.listen(PORT, () => {
 
 app.get("/api/top_movies", async (req, res) => {
   try {
-    let response;
     const { page } = req.query;
+    const cacheKey = `top_movies_${page || "default"}`;
+    const cachedData = cache.get(cacheKey);
+
+    if (cachedData) {
+      console.log("Dados encontrados no cache.");
+      res.json(cachedData);
+      return;
+    }
+
+    let response;
     page
       ? (response = await fetch(
           `${topMoviesURL}?${apiKey}&language=pt-BR&page=${page}`
@@ -33,6 +46,7 @@ app.get("/api/top_movies", async (req, res) => {
     res.header("Access-Control-Allow-Origin", "http://localhost:5173");
     res.header("Access-Control-Allow-Methods", "GET, POST");
     res.header("Access-Control-Allow-Headers", "Content-Type");
+    cache.set(cacheKey, data.results, 3600);
 
     res.json(data.results);
   } catch (error) {
@@ -44,7 +58,16 @@ app.get("/api/top_movies", async (req, res) => {
 app.get("/api/up_coming", async (req, res) => {
   try {
     const { page } = req.query;
-    const link = `${recentURL}?${apiKey}&language=pt-BR`;
+
+    const cacheKey = `up_coming${page || "default"}`;
+    const cachedData = cache.get(cacheKey);
+
+    if (cachedData) {
+      console.log("Dados encontrados no cache.");
+      res.json(cachedData);
+      return;
+    }
+
     let response;
     page
       ? (response = await fetch(
@@ -57,6 +80,7 @@ app.get("/api/up_coming", async (req, res) => {
     res.header("Access-Control-Allow-Origin", "http://localhost:5173");
     res.header("Access-Control-Allow-Methods", "GET, POST");
     res.header("Access-Control-Allow-Headers", "Content-Type");
+    cache.set(cacheKey, data.results, 3600);
 
     res.json(data.results);
   } catch (error) {
@@ -72,6 +96,8 @@ app.get("/api/search", async (req, res) => {
       `${searchURL}?${apiKey}&query=${search_path}&language=pt-BR`
     );
     const data = await response.json();
+
+    searchHistoryCache.set(search_path);
 
     res.header("Access-Control-Allow-Origin", "http://localhost:5173");
     res.header("Access-Control-Allow-Methods", "GET, POST");
