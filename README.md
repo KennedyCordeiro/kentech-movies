@@ -1,27 +1,49 @@
-# React + TypeScript + Vite
+<br clear="both">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center">KenTech Movies</h1>
 
-Currently, two official plugins are available:
+###
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<div align="center">
+  <img height="600" src="https://file.notion.so/f/f/e3debdd3-be68-43e5-a9df-e155efdd275a/13c1b8fc-90a1-484c-8456-0612f71b6414/Untitled.png?id=0f0540d4-7322-4614-a5cb-e99c12438bef&table=block&spaceId=e3debdd3-be68-43e5-a9df-e155efdd275a&expirationTimestamp=1699135200000&signature=-NTiZvI9NUHsw6tM-OWpouiMPGVG1HfEkoaAItgQOSw&downloadName=Untitled.png"  />
+</div>
 
-## Expanding the ESLint configuration
+###
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<p align="center">Um projeto de filmes onde o usuário pode pesquisar e visualizar detalhes de filmes usando as melhores práticas do mercado com layout fluido e bem evoluído.</p>
 
-- Configure the top-level `parserOptions` property like this:
+###
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+<h4 align="left">Tecnologias Utilizadas</h4>
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+###
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="40" alt="typescript logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="react logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" height="40" alt="jest logo"  />
+  <img width="12" />
+  <img src="https://skillicons.dev/icons?i=styledcomponents" height="40" alt="styledcomponents logo"  />
+  <img width="12" />
+  <img src="https://skillicons.dev/icons?i=figma" height="40" alt="figma logo"  />
+  <img width="12" />
+  <img src="https://cdn.simpleicons.org/nodedotjs/339933" height="40" alt="nodejs logo"  />
+  <img width="12" />
+  <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" height="40" alt="tailwindcss logo"  />
+</div>
+
+###
+
+<h4 align="left">Para inicializar o projeto inicie o servidor Node presente no arquivo "server.js" usando npm start</h4>
+
+###
+
+<br clear="both">
+
+<h4 align="left">Após isso rode em outra instância do terminal o projeto vite com *npm run dev*</h4>
+
+###
